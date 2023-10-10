@@ -5,6 +5,7 @@ editor: visual
 ---
 
 # Natasha
+
 ```{r}
 # Code test
 print ("Hello world!")
@@ -18,6 +19,10 @@ print ("Hello world!")
 ```
 
 # Ziwei
+
+```{r}
+2+2
+```
 
 ```{r}
 2+2

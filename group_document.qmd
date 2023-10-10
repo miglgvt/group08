@@ -8,6 +8,10 @@ editor: visual
 
 # Suru
 
+```{r}
+1+1
+```
+
 # Ziwei
 
 # Eszter

@@ -22,6 +22,12 @@ print("New feature")
 1+1
 ```
 
+### New feature
+
+```{r}
+2+2 # My branch
+```
+
 # Ziwei
 
 ```{r}

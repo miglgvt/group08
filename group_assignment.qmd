@@ -1,0 +1,18 @@
+---
+title: "Lab 7 Assignment: Group 08"
+format: 
+  html:
+    embed-resources: true
+editor: visual
+---
+
+# Group Assignment
+
+## Load libraries
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+## Load data

@@ -22,6 +22,7 @@ print ("Hello world!")
 
 ```{r}
 2+2
+1+1
 ```
 
 # Eszter

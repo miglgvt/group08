@@ -21,3 +21,13 @@ editor: visual
 # Eszter
 
 # Miguel
+
+We are programmers yay
+
+```{r}
+
+```
+
+```{r}
+
+```

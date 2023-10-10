@@ -13,6 +13,10 @@ print ("Hello world!")
 
 # Suru
 
+```{r}
+1+1
+```
+
 # Ziwei
 
 # Eszter

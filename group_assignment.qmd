@@ -13,6 +13,8 @@ editor: visual
 ```{r}
 #| message: false
 library(tidyverse)
+library(broom)
+library(patchwork)
 ```
 
 ## Load data

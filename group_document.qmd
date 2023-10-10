@@ -9,8 +9,6 @@ editor: visual
 # Code test
 print ("Hello world!")
 
-
-
 ```
 
 # Suru

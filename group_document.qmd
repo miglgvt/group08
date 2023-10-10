@@ -12,6 +12,12 @@ editor: visual
 1+1
 ```
 
+### New feature
+
+```{r}
+2+2 # My branch
+```
+
 # Ziwei
 
 # Eszter

@@ -11,7 +11,9 @@ editor: visual
 print ("Hello world!")
 
 ```
+
 ### New Feature
+
 ```{r}
 print("New feature")
 ```

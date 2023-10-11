@@ -17,7 +17,7 @@ library(broom)
 library(patchwork)
 ```
 
-## Load data and clean to tibble
+## Load data
 
 ```{r}
 raw_dir <- "data/_raw/"
@@ -35,6 +35,8 @@ if( !file.exists(str_c(raw_dir, data_file)) ){
 load(file = str_c(raw_dir, data_file))
 ```
 
+Clean data and Mutate with Metastasis as selector
+
 ```{r}
 gravier_clean <- gravier |>
   bind_cols() |>
@@ -48,7 +50,7 @@ gravier_clean_aug <- gravier_clean |>
   write_tsv("data/03_gravier_clean_aug.tsv.gz")
 ```
 
-## PCA run
+## Compute PCA
 
 ```{r}
 pca_fit <- gravier_clean_aug |>  
@@ -56,18 +58,91 @@ pca_fit <- gravier_clean_aug |>
   prcomp(scale = TRUE) # do PCA on scaled data
 ```
 
-Plot coordinates
+### Plot PC1 vs PC2
+
+```{r}
+p1 <- pca_fit |> 
+  augment(gravier_clean_aug) |> 
+  ggplot(
+    aes(.fittedPC1,
+        .fittedPC2,
+        color = as.factor(early_metastasis))
+  ) + 
+  geom_point()  +
+  scale_color_manual(
+    name="Metastasis state",
+    labels=c("Good", "Poor"),
+    values=c("darkblue", "darkorange")
+  ) +
+  labs(x = "PC1", y = "PC2") +
+  theme_minimal()
+
+p2 <- pca_fit |> 
+  augment(gravier_clean_aug) |> 
+  ggplot(
+    aes(.fittedPC1,
+        .fittedPC3,
+        color = as.factor(early_metastasis))
+  ) + 
+  geom_point()  +
+  scale_color_manual(
+    name="Metastasis state",
+    labels=c("Good", "Poor"),
+    values=c("darkblue", "darkorange")
+  ) +
+  labs(x = "PC1", y = "PC3") +
+  theme_minimal()
+
+p3 <- pca_fit |> 
+  augment(gravier_clean_aug) |> 
+  ggplot(
+    aes(.fittedPC2,
+        .fittedPC3,
+        color = as.factor(early_metastasis))
+  ) + 
+  geom_point()  +
+  scale_color_manual(
+    name="Metastasis state",
+    labels=c("Good", "Poor"),
+    values=c("darkblue", "darkorange")
+  ) +
+  labs(x = "PC2", y = "PC3") +
+  theme_minimal()
+
+p4 <- pca_fit |> 
+  augment(gravier_clean_aug) |> 
+  ggplot(
+    aes(.fittedPC1,
+        .fittedPC4,
+        color = as.factor(early_metastasis))
+  ) + 
+  geom_point()  +
+  scale_color_manual(
+    name="Metastasis state",
+    labels=c("Good", "Poor"),
+    values=c("darkblue", "darkorange")
+  ) +
+  labs(x = "PC1", y = "PC4") +
+  theme_minimal()
+
+p1 + p2 + p3 + p4 |> wrap_plots()
+```
+
+## Inspect principal components
 
 ```{r}
 pca_fit |> 
-  augment(gravier_clean_aug) |>  # add original dataset back in
-  ggplot(aes(.fittedPC1, 
-             .fittedPC2, 
-             color = earlt_metastasis)) + 
-  geom_point(size = 1.5) +
-  scale_color_manual(values = 
-                       c("1" = "#D55E00", 
-                         "0" = "#0072B2")) + 
-  xlab("PC1") +
-  ylab("PC2")
+  tidy(matrix = "eigenvalues")
+```
+
+```{r}
+
+pca_fit |> 
+  tidy(matrix = "eigenvalues") |> 
+  ggplot(aes(PC, percent)) +
+  geom_col(fill = "#56B4E9", alpha = 0.8) +
+  scale_x_continuous() +
+  scale_y_continuous(
+    labels = scales::percent_format()) +
+  theme_minimal()
 ```

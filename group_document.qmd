@@ -54,6 +54,7 @@ print("Hi guys")
 ```{r}
 1+1
 #yey
+9+9
 ```
 
 # Miguel

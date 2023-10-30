@@ -46,11 +46,22 @@ print("New feature")
 ```{r}
 print("Hi guys")
 2+2
+
+```
+
+## New feature
+
+wooow
+
+```{r}
+1+1
+#yey
+9+9
 ```
 
 # Miguel
 
-We are programmers yay
+# We are programmers yay
 
 ```{r}
 

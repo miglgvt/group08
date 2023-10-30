@@ -43,6 +43,11 @@ print("New feature")
 
 # Eszter
 
+```{r}
+print("Hi guys")
+2+2
+```
+
 # Miguel
 
 We are programmers yay

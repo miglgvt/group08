@@ -49,7 +49,7 @@ print("Hi guys")
 
 ```
 
-#### New analysis
+#### New feature
 
 ```{r}
 1+1
